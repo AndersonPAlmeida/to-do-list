@@ -1,0 +1,42 @@
+.taskContainer {
+   width: max-content;
+   margin: -2.7rem auto 0;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.taskContainer input {
+   width: 64rem;
+   background-color: var(--gray-500);
+   font-size: 1.6rem;
+   color: var(--gray-100);
+   padding: 1.6rem;
+
+   border: 1px solid var(--gray-700);
+   border-radius: 8px;
+   
+}
+.taskContainer input::placeholder {
+   color: var(--gray-300);
+}
+
+
+.taskContainer button {
+   background-color: var(--blue-700);
+   color: var(--gray-100);
+   font-weight: 700;
+   line-height: 1.9rem;
+   padding: 1.6rem;
+
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   border-radius: 8px;
+
+   transition: background-color 0.2s;
+}
+
+.taskContainer button:hover {
+   background-color: var(--blue-400);
+}
