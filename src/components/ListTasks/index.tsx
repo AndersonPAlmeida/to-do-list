@@ -1,6 +1,6 @@
 import styles from './Tasks.module.css';
 
-export function Tasks(){
+export function ListTasks(){
    return (
       <div>
          <header className={styles.headerTask}>
@@ -14,7 +14,6 @@ export function Tasks(){
             </div>
          </header>
          <section className='listTask'>
-            {/* {children} */}
          </section>
       </div>
    );
