@@ -9,10 +9,13 @@
    border: 1px solid var(--gray-400);
 }
 
+.container .containerCheck {
+   padding: 3.27px;
+}
 .container input[type="checkbox"] {
    appearance: none;
-   width: 24px;
-   height: 24px;
+   width: 21px;
+   height: 21px;
    border: 2px solid var(--blue-400);
    border-radius: 50%;
    cursor: pointer;
@@ -34,6 +37,10 @@
    color: var(--gray-100);
    line-height: 2rem;
    font-weight: 400;
+}
+
+.container .containerButton {
+   padding: 3px 0;
 }
 
 .container button {
