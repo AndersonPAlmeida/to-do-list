@@ -1,6 +1,5 @@
 .taskContainer {
-   width: max-content;
-   margin: -2.7rem auto 0;
+   margin: -2.7rem 0 6.5rem;
    display: flex;
    align-items: center;
    gap: 8px;
