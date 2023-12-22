@@ -1,0 +1,36 @@
+.headerTask {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.qtdCreateTask {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+.qtdCreateTask p{
+   color: var(--blue-400);
+   line-height: 1.7rem;
+   font-weight: 700;
+}
+
+.qtdCreateTask .secondTitle {
+   color: var(--purple-300);
+}
+
+.qtdCreateTask span {
+   font-size: 1.2rem;
+   font-weight: 700;
+   line-height: 1.5rem;
+   color: var(--gray-100);
+
+   background-color: var(--gray-400);
+   padding: 2px 8px;
+   border-radius: 10px;
+}
+
+.listTask {
+   display: flex;
+   flex-direction: column;
+   gap: 1.2rem;
+}
