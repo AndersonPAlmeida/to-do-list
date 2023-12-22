@@ -1,6 +1,11 @@
-import styles from './Tasks.module.css';
+import { ReactNode } from 'react';
+import styles from './ListTasks.module.css';
 
-export function ListTasks(){
+interface Tasks {
+   children: ReactNode;
+}
+
+export function ListTasks({ children }: Tasks) {
    return (
       <div>
          <header className={styles.headerTask}>
@@ -13,7 +18,8 @@ export function ListTasks(){
                <span>2 de 5</span>
             </div>
          </header>
-         <section className='listTask'>
+         <section className={styles.listTak}>
+            {children}
          </section>
       </div>
    );

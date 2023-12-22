@@ -12,8 +12,11 @@ function App() {
       <Header />
       <div className={styles.container}>
         <AddTask />
-        <ListTasks />
-        <Task />
+        <ListTasks>
+          <Task />
+          <Task />
+          <Task />
+        </ListTasks>
       </div>
     </>
   )
