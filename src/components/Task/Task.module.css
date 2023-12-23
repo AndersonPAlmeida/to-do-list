@@ -9,10 +9,8 @@
    border: 1px solid var(--gray-400);
 }
 
-.container .containerCheck {
-   padding: 3.27px;
-}
 .container input[type="checkbox"] {
+   margin-top: 3.27px;
    appearance: none;
    width: 21px;
    height: 21px;
@@ -37,6 +35,12 @@
    color: var(--gray-100);
    line-height: 2rem;
    font-weight: 400;
+   width: 100%;
+}
+
+.container input[type="checkbox"]:checked + .descriptionTask {
+   color: var(--gray-300);
+   text-decoration: line-through;
 }
 
 .container .containerButton {
@@ -49,9 +53,4 @@
    cursor: pointer;
    line-height: 0;
    border-radius: 2px;
-}
-
-.container input[type="checkbox"]:checked + .descriptionTask {
-   color: var(--gray-300);
-   text-decoration: line-through;
 }

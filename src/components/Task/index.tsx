@@ -1,14 +1,17 @@
 import style from './Task.module.css';
 import { CgTrash } from "react-icons/cg";
+import { TaskType } from '../../App';
 
-export function Task() {
+interface TaskProps {
+   task: TaskType;
+}
+
+export function Task({task}: TaskProps) {
    return (
-      <div className={style.container}>
-         <span className={style.containerCheck}>
-            <input type="checkbox" name="completionTask" id="completionTask" />
-         </span>
+      <div className={style.container} id={task.content}>
+         <input type="checkbox" name="completionTask" id="completionTask" />
          <p className={style.descriptionTask}>
-            Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+            {task.content}
          </p>
          <span className={style.containerButton}>
             <button>
