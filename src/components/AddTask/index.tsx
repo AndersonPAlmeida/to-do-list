@@ -4,12 +4,12 @@ import { ChangeEvent } from 'react';
 
 interface Task {
    textTask: string;
-   setTextTask: (task: string) => void;
-   saveTask: (task: string) => void;
+   setTextTask: (taskText: string) => void;
+   saveTask: (taskText: string) => void;
 }
 
 export function AddTask({textTask, setTextTask, saveTask}: Task) {
-   function handletextTask(event: ChangeEvent<HTMLInputElement>) {
+   function handleTextTask(event: ChangeEvent<HTMLInputElement>) {
       setTextTask(event.target.value);
    }
 
@@ -20,7 +20,7 @@ export function AddTask({textTask, setTextTask, saveTask}: Task) {
 
    return (
       <div className={style.taskContainer}>
-         <input type="text" name="task" value={textTask} placeholder="Adicione uma nova tarefa" onChange={handletextTask} id="task"/>
+         <input type="text" name="task" value={textTask} placeholder="Adicione uma nova tarefa" onChange={handleTextTask} id="task"/>
          <button onClick={handleCatchTask}>Criar <CgAdd size={16}/></button>
       </div>
    );

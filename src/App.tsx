@@ -12,22 +12,41 @@ export interface TaskType {
   isChecked: boolean;
 }
 
-const tasks: TaskType[] = [];
-
 function App() {
 
   const [textTask, setTextTask] = useState('');
-  // const [isChecked, setIsChecked] = useState(false);
+  const [tasks, setTasks] = useState([{
+    content: 'Tarefa 1',
+    isChecked: false
+  }]);
 
-  function onSetTextTask(task: string) {
-    setTextTask(task);
+  function onSetTextTask(taskText: string) {
+    setTextTask(taskText);
   }
 
   function saveTask(task: string) {
-    tasks.push({
+    setTasks([...tasks, {
       content: task,
       isChecked: false
+    }]);
+  }
+
+  function onIsChecked(content: string){
+    const newTasks = tasks.map(task => {
+      if(task.content === content) {
+        task.isChecked = !task.isChecked;
+        return task;
+      }
+      return task;
     });
+    
+    setTasks(newTasks);
+  }
+
+  function onDeleteTask(content: string) {
+    const removeOneTask = tasks.filter(task => task.content !== content);
+
+    setTasks(removeOneTask);
   }
 
   return (
@@ -45,6 +64,8 @@ function App() {
               <Task 
                 key={task.content}
                 task={task}
+                onIsChecked={onIsChecked}
+                onDeleteTask={onDeleteTask}
               />
             )
           })}
