@@ -49,6 +49,14 @@ function App() {
     setTasks(removeOneTask);
   }
 
+  let totalTasks = tasks.length;
+  let totalTasksCompleted = tasks.reduce((accumulator: number, task: TaskType) => {
+    if(task.isChecked) {
+      accumulator++;
+    }
+    return accumulator;
+  }, 0);
+  
   return (
     <div>
       <Header />
@@ -58,7 +66,10 @@ function App() {
           setTextTask={onSetTextTask}
           saveTask={saveTask}
         />
-        <ListTasks>
+        <ListTasks
+          totalTasks={totalTasks}
+          totalTaskCompleted={totalTasksCompleted}
+        >
           {tasks.map(task => {
             return (
               <Task 
