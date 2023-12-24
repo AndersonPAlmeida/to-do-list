@@ -47,9 +47,13 @@ function App() {
     setTasks(updateTasks);
   }
 
-  function onDeleteTask(content: string) {
-    const removeOneTask = tasks.filter(task => task.content !== content);
+  function onDeleteTask(id: string) {
+    const removeOneTask = tasks.filter(task => task.id !== id);
 
+    if (!confirm('Deseja mesmo apagar essa tarefa?')) {
+      return
+    }
+    
     setTasks(removeOneTask);
   }
 

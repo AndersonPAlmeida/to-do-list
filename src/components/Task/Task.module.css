@@ -10,13 +10,13 @@
 }
 
 .container input[type="checkbox"] {
-   margin-top: 3.27px;
    appearance: none;
    width: 21px;
    height: 21px;
    border: 2px solid var(--blue-400);
    border-radius: 50%;
    cursor: pointer;
+   transition: 0.2s all;
 }
 
 .container input[type="checkbox"]:checked {
@@ -43,14 +43,17 @@
    text-decoration: line-through;
 }
 
-.container .containerButton {
-   padding: 3px 0;
-}
-
 .container button {
    background: none;
    color: var(--gray-300);
    cursor: pointer;
    line-height: 0;
    border-radius: 2px;
+   padding: 3px 4px 2px 4px;
+   transition: 0.2s background-color;
+}
+
+.container button:hover {
+   color: var(--red-500);
+   background-color: var(--gray-400);
 }

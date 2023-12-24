@@ -5,7 +5,7 @@ import { TaskType } from '../../App';
 interface TaskProps {
    task: TaskType;
    onToggleTask: ({id, complete}: {id: string; complete: boolean}) => void;
-   onDeleteTask: (text: string) => void;
+   onDeleteTask: (id: string) => void;
 }
 
 export function Task({task, onToggleTask, onDeleteTask}: TaskProps) {
@@ -15,7 +15,7 @@ export function Task({task, onToggleTask, onDeleteTask}: TaskProps) {
    }
 
    function handleDeleteTask() {
-      onDeleteTask(task.content);
+      onDeleteTask(task.id);
    }
    
    return (
@@ -24,11 +24,9 @@ export function Task({task, onToggleTask, onDeleteTask}: TaskProps) {
          <p className={style.descriptionTask}>
             {task.content}
          </p>
-         <span className={style.containerButton}>
-            <button onClick={handleDeleteTask}>
-               <CgTrash size={18}/>
-            </button>
-         </span>
+         <button onClick={handleDeleteTask}>
+            <CgTrash size={18}/>
+         </button>
       </div>
    );
 }
