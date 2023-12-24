@@ -17,7 +17,11 @@ export function ListTasks({ totalTasks, totalTaskCompleted, children }: Tasks) {
             </div>
             <div className={styles.qtdCreateTask}>
                <p className={styles.secondTitle}>Concluídas</p>
-               <span>{totalTaskCompleted} de {totalTasks}</span>
+               {
+                  totalTasks === 0 ? 
+                  <span>{totalTasks}</span> :
+                  <span>{totalTaskCompleted} de {totalTasks}</span>
+               }
             </div>
          </header>
          <section className={styles.listTak}>

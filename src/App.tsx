@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Header } from './components/Header';
 import { AddTask } from './components/AddTask';
 import { ListTasks } from './components/ListTasks';
@@ -5,9 +8,9 @@ import { Task } from './components/Task';
 
 import './global.css';
 import styles from './App.module.css';
-import { useState } from 'react';
 
 export interface TaskType {
+  id: string;
   content: string;
   isChecked: boolean;
 }
@@ -15,17 +18,18 @@ export interface TaskType {
 function App() {
 
   const [textTask, setTextTask] = useState('');
-  const [tasks, setTasks] = useState([{
-    content: 'Tarefa 1',
-    isChecked: false
-  }]);
+  const [tasks, setTasks] = useState<TaskType[]>([]);
 
   function onSetTextTask(taskText: string) {
     setTextTask(taskText);
   }
 
   function saveTask(task: string) {
+    if (!textTask) {
+      return;
+    }
     setTasks([...tasks, {
+      id: uuidv4(),
       content: task,
       isChecked: false
     }]);
@@ -52,7 +56,7 @@ function App() {
   let totalTasks = tasks.length;
   let totalTasksCompleted = tasks.reduce((accumulator: number, task: TaskType) => {
     if(task.isChecked) {
-      accumulator++;
+      return accumulator += 1;
     }
     return accumulator;
   }, 0);
@@ -70,16 +74,20 @@ function App() {
           totalTasks={totalTasks}
           totalTaskCompleted={totalTasksCompleted}
         >
-          {tasks.map(task => {
-            return (
-              <Task 
-                key={task.content}
-                task={task}
-                onIsChecked={onIsChecked}
-                onDeleteTask={onDeleteTask}
-              />
-            )
-          })}
+            {
+              tasks.length === 0 ? 
+                <p>Vazio</p> : 
+                tasks.map(task => {
+                  return (
+                    <Task 
+                      key={task.id}
+                      task={task}
+                      onIsChecked={onIsChecked}
+                      onDeleteTask={onDeleteTask}
+                    />
+                  )
+                })
+            }
         </ListTasks>
       </div>
     </div>
