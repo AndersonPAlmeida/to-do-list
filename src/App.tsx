@@ -35,16 +35,16 @@ function App() {
     }]);
   }
 
-  function onIsChecked(content: string){
-    const newTasks = tasks.map(task => {
-      if(task.content === content) {
-        task.isChecked = !task.isChecked;
+  function onToggleTask({id, complete}: {id: string, complete: boolean}){
+    const updateTasks = tasks.map(task => {
+      if(task.id === id) {
+        task.isChecked = complete;
         return task;
       }
       return task;
     });
     
-    setTasks(newTasks);
+    setTasks(updateTasks);
   }
 
   function onDeleteTask(content: string) {
@@ -82,7 +82,7 @@ function App() {
                     <Task 
                       key={task.id}
                       task={task}
-                      onIsChecked={onIsChecked}
+                      onToggleTask={onToggleTask}
                       onDeleteTask={onDeleteTask}
                     />
                   )
