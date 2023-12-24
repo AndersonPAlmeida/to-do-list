@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { AddTask } from './components/AddTask';
 import { ListTasks } from './components/ListTasks';
 import { Task } from './components/Task';
+import { TaskEmpty } from './components/TaskEmpty';
 
 import './global.css';
 import styles from './App.module.css';
@@ -53,7 +54,7 @@ function App() {
     if (!confirm('Deseja mesmo apagar essa tarefa?')) {
       return
     }
-    
+
     setTasks(removeOneTask);
   }
 
@@ -80,7 +81,7 @@ function App() {
         >
             {
               tasks.length === 0 ? 
-                <p>Vazio</p> : 
+                <TaskEmpty /> : 
                 tasks.map(task => {
                   return (
                     <Task 
