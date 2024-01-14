@@ -58,8 +58,8 @@ function App() {
     setTasks(removeOneTask);
   }
 
-  let totalTasks = tasks.length;
-  let totalTasksCompleted = tasks.reduce((accumulator: number, task: TaskType) => {
+  const totalTasks = tasks.length;
+  const totalTasksCompleted = tasks.reduce((accumulator: number, task: TaskType) => {
     if(task.isChecked) {
       return accumulator += 1;
     }
